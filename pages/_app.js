@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
+import theme from '../src/theme';
+import GlobalStyle from '../src/theme/GlobalStyle';
+
 function App({ Component, pageProps }) {
   const title = 'Desafio Bootcamp NextJS Módulo 1';
 
@@ -9,7 +12,10 @@ function App({ Component, pageProps }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <ThemeProvider theme={theme}></ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
